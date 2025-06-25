@@ -11,6 +11,9 @@ const badRoute = require('./Utils/notfound')
 app.use(express.json())
 app.use('/user/v1', authRouter)
 app.use('/user/v1/goals', auth, goalRouter)
+app.get('/', (req, res)=>{
+    res.status(200).json({success: true, message: "server is live"})
+})
 app.use(badRoute)
 const startServer = async () => {
     try {
